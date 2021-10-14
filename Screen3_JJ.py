@@ -1,4 +1,4 @@
-#josejunco
+#Screen3 with Python by JoseJunco
 import os
 import matplotlib.pyplot as plt # paquete matplotlib
 #import pandas as pd  #paquete panda, estructura de datos
@@ -6,7 +6,7 @@ import numpy as np  # paquete numpy
 from matplotlib import style
 from scipy.interpolate import make_interp_spline, BSpline
 
-style.use('fivethirtyeight')
+style.use('seaborn')
 #Abrir el archivo para modificarlo
 f = open ('DFP.DAT','r')
 m = f.read()
@@ -38,7 +38,6 @@ D_D='N' #Distancia discreta
 Fm='N' #Fumigación
 Impr='Y' #Imprimir una copia
 
-
 f = open('DFP.DAT','w')
 f.write(N+'\n')
 f.write(Tso+'          10.0\n')
@@ -61,13 +60,10 @@ f.write('  '+Min_Max_D+'\n')
 f.write(D_D+'\n')
 f.write(Fm+'\n')
 f.write(Impr+'\n')
-
 f.close()
-
 #EJECUTA EL SCREEN3
 cmd = "SCREEN3 <DFP.DAT"
 returned_value = os.system(cmd)
-
 
 print ("*** Lectura archivo DAT ***")
 d1 = []
@@ -99,7 +95,6 @@ for x in range(0,n):
 	cnc.append(float(d1[m+1]))
 	m=m+10
 
-
 link=data.index('MAXIMUM')
 dist=data[link+8]
 conc=data[link+9]
@@ -108,7 +103,6 @@ dist=int(dist)
 dist=str(dist)
 conc=float(conc)
 conc=str(conc)
-
 
 #Suavizado
 ds = np.array(d)
